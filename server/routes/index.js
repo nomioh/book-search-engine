@@ -4,13 +4,13 @@ const apiRoutes = require("./api");
 
 // import Schema from "./graphql/schema";
 
-const apolloServer = new ApolloServer({
-  schema: Schema,
-  playground: true,
-  context: ({ req }) => ({
-    user: req.user,
-  }),
-});
+// const apolloServer = new ApolloServer({
+//   schema: Schema,
+//   playground: true,
+//   context: ({ req }) => ({
+//     user: req.user,
+//   }),
+// });
 
 router.use("/api", apiRoutes);
 
