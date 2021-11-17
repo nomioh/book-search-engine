@@ -1,15 +1,11 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import {
-  ApolloProvider,
-  ApolloClient,
-  InMenoryCache,
-  createHttpLink,
-} from "@apollo/Client";
-import { setContext } from "@apollo/client/link/context";
 import SearchBooks from "./pages/SearchBooks";
 import SavedBooks from "./pages/SavedBooks";
 import Navbar from "./components/Navbar";
+
+import { ApolloProvider } from "@apollo/react-hooks";
+import ApolloClient from "apollo-boost";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -32,7 +28,7 @@ const client = new ApolloClient({
 
 function App() {
   return (
-    <ApolloClient client={client}>
+    <ApolloProvider client={client}>
       <Router>
         <>
           <Navbar />
@@ -43,7 +39,7 @@ function App() {
           </Switch>
         </>
       </Router>
-    </ApolloClient>
+    </ApolloProvider>
   );
 }
 

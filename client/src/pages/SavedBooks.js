@@ -17,8 +17,9 @@ import { GET_ME } from "../utils/queries";
 import { REMOVE_BOOK } from "../utils/mutations";
 
 const SavedBooks = () => {
-  const [userData, setUserData] = useState({});
-
+  // const [userData, setUserData] = useState({});
+  const { loading, dataa } = useQuery(GET_ME);
+  const userData = data?.me || data?.user || {};
   // use this to determine if `useEffect()` hook needs to run again
 
   const userDataLength = Object.keys(userData).length;
@@ -72,7 +73,7 @@ const SavedBooks = () => {
     }
   };
 
-  if (!userDataLength) {
+  if (!loading) {
     return <h2>LOADING...</h2>;
   }
 
