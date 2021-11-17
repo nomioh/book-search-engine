@@ -2,7 +2,8 @@ const router = require("express").Router();
 const path = require("path");
 const apiRoutes = require("./api");
 
-import Schema from "./graphql/schema";
+// import Schema from "./graphql/schema";
+
 const apolloServer = new ApolloServer({
   schema: Schema,
   playground: true,
